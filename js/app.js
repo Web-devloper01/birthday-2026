@@ -95,6 +95,60 @@ const pages = [
     ]
   },
   {
+    type: "photo",
+    kicker: "a little photo note · 1 of 6",
+    title: "Golden-hour glow",
+    src: "images/khushi-gold.jpg",
+    alt: "Khushi in a gold embroidered outfit, looking over her shoulder",
+    caption: "You make life brighter",
+    body: "The warm golden light and your gentle smile make this one feel like a little celebration all by itself."
+  },
+  {
+    type: "photo",
+    kicker: "a little photo note · 2 of 6",
+    title: "A soft pink moment",
+    src: "images/khushi-pink-saree.jpg",
+    alt: "Khushi in a cream outfit with a pink drape, seen from behind",
+    caption: "A girl with a heart of gold",
+    body: "The graceful pose and soft pink details make this photo feel especially elegant and kind."
+  },
+  {
+    type: "photo",
+    kicker: "a little photo note · 3 of 6",
+    title: "A favorite candid",
+    src: "images/khushi-vintage-selfie.jpg",
+    alt: "A black-and-white mirror selfie of Khushi",
+    caption: "My happy place",
+    body: "A quiet, candid little moment. It has the relaxed, familiar feeling of a conversation with my best friend."
+  },
+  {
+    type: "photo",
+    kicker: "a little photo note · 4 of 6",
+    title: "That red look",
+    src: "images/khushi-red-dress.jpg",
+    alt: "Khushi smiling in a red outfit beside a light curtain",
+    caption: "You’re truly amazing",
+    body: "The bright red, the playful pose, and that smile make this one impossible not to notice."
+  },
+  {
+    type: "photo",
+    kicker: "a little photo note · 5 of 6",
+    title: "Just being you",
+    src: "images/khushi-casual-selfie.jpg",
+    alt: "A relaxed selfie of Khushi with her hair down",
+    caption: "Always you",
+    body: "No fancy setting needed. This simple selfie feels relaxed, natural, and completely you."
+  },
+  {
+    type: "photo",
+    kicker: "a little photo note · 6 of 6",
+    title: "Garden-day glow",
+    src: "images/khushi-garden.jpg",
+    alt: "Khushi standing in a garden in a cream and pink outfit",
+    caption: "Simply perfect",
+    body: "The leafy garden and full-length view give this photo a peaceful, storybook feel."
+  },
+  {
     kicker: "the last page, for now",
     title: "Happy birthday, again",
     body: `I hope the year ahead brings you good surprises, peaceful days, and lots of reasons to laugh.
@@ -195,6 +249,22 @@ function renderPages() {
           <h2>${page.title}</h2>
           <p class="letter">${page.letter.replace(/\n/g, "<br/>")}</p>
           <p class="sign">— ${CONFIG.fromName}</p>
+          </div></div>
+          <div class="page-face page-back" aria-hidden="true"><div class="page-content"></div></div>
+          </div>
+        </article>`;
+      }
+      if (page.type === "photo") {
+        return `<article class="page${i === 0 ? " active" : ""}" data-i="${i}">
+          <div class="page-sheet">
+          <div class="page-face page-front"><div class="page-content photo-page-content">
+          <p class="kicker">${page.kicker}</p>
+          <h2>${page.title}</h2>
+          <figure class="photo-frame">
+            <img class="photo-image" src="${page.src}" alt="${page.alt}" draggable="false" />
+          </figure>
+          <p class="photo-caption">${page.caption}</p>
+          <p class="photo-note">${page.body}</p>
           </div></div>
           <div class="page-face page-back" aria-hidden="true"><div class="page-content"></div></div>
           </div>
