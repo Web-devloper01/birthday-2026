@@ -1806,6 +1806,12 @@ body {
   object-position: 50% 50%;
 }
 
+@media (max-width: 600px) {
+  .photo-image {
+    object-position: 50% 34%;
+  }
+}
+
 .photo-caption {
   margin: 4px auto 3px;
   color: #9b526b;
