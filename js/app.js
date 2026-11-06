@@ -16,8 +16,7 @@ const pages = [
     kicker: "a diary just for you",
     title: `Happy Birthday`,
     name: CONFIG.herName,
-    body: "Open these pages slowly. There’s a little surprise waiting after you make a wish.",
-    placeholder: true
+    body: "Open these pages slowly. There’s a little surprise waiting after you make a wish."
   },
   {
     kicker: "start here",
@@ -30,73 +29,13 @@ const pages = [
     letter: `If life feels a little heavy, I hope today brings some lighter moments. We’ve been best friends since we were kids, and I’m grateful for every silly memory, thoughtful little thing, and laugh we’ve shared. You matter so much to me, and I hope this little book makes you smile. Happy birthday, ${CONFIG.herName}!`
   },
   {
-    kicker: "a memory",
-    title: "Hand cricket",
-    body: "The tiniest match, the loudest arguments, and both of us pretending it was the World Cup. The serious commentary was almost as funny as the game.",
-    placeholder: true
-  },
-  {
-    kicker: "a memory",
-    title: "Arm wrestling… for fun",
-    body: "We took the silliest competition so seriously. The best part was always how quickly it turned into laughing.",
-    placeholder: true
-  },
-  {
-    kicker: "a memory",
-    title: "Those little chits",
-    body: "Folded paper, little jokes, and a whole conversation squeezed onto tiny scraps. Such a small thing, such a good memory.",
-    placeholder: true
-  },
-  {
-    kicker: "a memory",
-    title: "The way you fed me",
-    body: "You sharing your food with me was such a small, thoughtful thing. I still remember it whenever I think about how kind you are.",
-    placeholder: true
-  },
-  {
-    kicker: "a memory",
-    title: "That hug",
-    body: "Your hug came at exactly the right moment. It’s one of those simple memories that still makes me feel grateful to have you in my life.",
-    placeholder: true
-  },
-  {
-    kicker: "a memory",
-    title: "Car & Activa rides",
-    body: "Wind, music, random conversations, and no big plan needed. Some of my favourite memories are the ordinary bits in between.",
-    placeholder: true
-  },
-  {
-    kicker: "a little appreciation",
-    title: "Your kind of magic",
-    body: "You have a way of making people feel welcome and making ordinary moments more fun. I hope you know how much that is appreciated.",
-    placeholder: true
-  },
-  {
-    kicker: "a friendly reminder",
-    title: "You’ve got this",
-    body: `Take things one day at a time, ${CONFIG.herName}. You can ask for help, take a break, or simply have an off day. I’ll always be here to listen and cheer you on.`,
-    placeholder: true
-  },
-  {
     type: "cake",
     kicker: "a tiny party",
     title: "Make a wish",
     body: "Tap the cake and make a wish. There’s a little note waiting after the candles go out."
   },
   {
-    kicker: "keep these",
-    title: "Little reminders",
-    placeholder: true,
-    reasons: [
-      "Your smile can still make an ordinary day feel kinder.",
-      "You don’t have to figure everything out all at once.",
-      "Being best friends since childhood is one of my favorite parts of growing up.",
-      "Rest is productive too. Be as kind to yourself as you are to everyone else."
-    ]
-  },
-  {
     type: "photo",
-    kicker: "a little photo note · 1 of 6",
     title: "Golden-hour glow",
     src: "images/khushi-gold.jpg",
     alt: "Khushi in a gold embroidered outfit, looking over her shoulder",
@@ -105,7 +44,6 @@ const pages = [
   },
   {
     type: "photo",
-    kicker: "a little photo note · 2 of 6",
     title: "A soft pink moment",
     src: "images/khushi-pink-saree.jpg",
     alt: "Khushi in a cream outfit with a pink drape, seen from behind",
@@ -114,16 +52,14 @@ const pages = [
   },
   {
     type: "photo",
-    kicker: "a little photo note · 3 of 6",
     title: "A favorite candid",
-    src: "images/khushi-vintage-selfie.jpg",
+    src: "images/khushi-vintage-selfie-cropped.jpg",
     alt: "A black-and-white mirror selfie of Khushi",
     caption: "My happy place",
     body: "A quiet, candid little moment. It has the relaxed, familiar feeling of a conversation with my best friend."
   },
   {
     type: "photo",
-    kicker: "a little photo note · 4 of 6",
     title: "That red look",
     src: "images/khushi-red-dress.jpg",
     alt: "Khushi smiling in a red outfit beside a light curtain",
@@ -132,16 +68,14 @@ const pages = [
   },
   {
     type: "photo",
-    kicker: "a little photo note · 5 of 6",
     title: "Just being you",
-    src: "images/khushi-casual-selfie.jpg",
+    src: "images/khushi-casual-selfie-cropped.jpg",
     alt: "A relaxed selfie of Khushi with her hair down",
     caption: "Always you",
     body: "No fancy setting needed. This simple selfie feels relaxed, natural, and completely you."
   },
   {
     type: "photo",
-    kicker: "a little photo note · 6 of 6",
     title: "Garden-day glow",
     src: "images/khushi-garden.jpg",
     alt: "Khushi standing in a garden in a cream and pink outfit",
@@ -224,17 +158,12 @@ function renderPages() {
   spiralBinding.innerHTML = Array.from({ length: 18 }, () => "<span></span>").join("");
   pagesEl.innerHTML = pages
     .map((page, i) => {
-      const placeholder = page.placeholder
-        ? '<div class="art-placeholder">Sticker will be here</div>'
-        : "";
       if (page.type === "cover") {
         return `<article class="page cover-page${i === 0 ? " active" : ""}" data-i="${i}">
           <div class="page-sheet">
           <div class="page-face page-front"><div class="page-content">
-          <p class="kicker">${page.kicker}</p>
           <h2>${page.title}</h2>
           <p class="cover-sub">${page.name}</p>
-          ${placeholder}
           <p class="cover-note">${page.body}</p>
           </div></div>
           <div class="page-face page-back" aria-hidden="true"><div class="page-content"></div></div>
@@ -258,7 +187,6 @@ function renderPages() {
         return `<article class="page${i === 0 ? " active" : ""}" data-i="${i}">
           <div class="page-sheet">
           <div class="page-face page-front"><div class="page-content photo-page-content">
-          <p class="kicker">${page.kicker}</p>
           <h2>${page.title}</h2>
           <figure class="photo-frame">
             <img class="photo-image" src="${page.src}" alt="${page.alt}" draggable="false" />
@@ -310,7 +238,6 @@ function renderPages() {
         <div class="page-face page-front"><div class="page-content">
         <p class="kicker">${page.kicker}</p>
         <h2>${page.title}</h2>
-        ${placeholder}
         ${page.body ? `<p>${page.body}</p>` : ""}
         ${reasons}
         </div></div>

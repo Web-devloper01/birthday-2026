@@ -1731,21 +1731,6 @@ body {
   text-shadow: 0 3px 14px rgba(166, 78, 104, 0.14);
 }
 
-.art-placeholder {
-  width: min(100%, 320px);
-  min-height: 120px;
-  flex: 1 1 120px;
-  margin: 14px auto;
-  display: grid;
-  place-items: center;
-  border: 1.5px dashed rgba(166, 78, 104, 0.32);
-  border-radius: 18px;
-  background: rgba(255, 253, 248, 0.56);
-  color: #76515f;
-  font: italic 1.12rem "Cormorant Garamond", serif;
-  text-align: center;
-}
-
 .cake-surprise {
   width: min(100%, 300px);
   margin: 14px auto 4px;
@@ -1784,15 +1769,10 @@ body {
   font: 600 1.12rem "Dancing Script", cursive;
 }
 
-.photo-page-content .kicker,
 .photo-page-content h2,
 .photo-caption,
 .photo-note {
   text-align: center;
-}
-
-.photo-page-content .kicker {
-  margin: 0 auto 2px;
 }
 
 .photo-page-content h2 {
