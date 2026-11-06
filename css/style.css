@@ -1791,7 +1791,10 @@ body {
   overflow: hidden;
   border: 1px solid rgba(179, 146, 97, 0.26);
   border-radius: 17px;
-  background: #f2eae5;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.06)),
+    repeating-linear-gradient(to bottom, transparent 0 17px, rgba(166, 128, 137, 0.12) 17px 18px),
+    linear-gradient(145deg, #fffaf3, #f8efeb 54%, #f2e2e5);
   box-shadow: 0 7px 16px rgba(81, 53, 61, 0.12);
 }
 
@@ -1802,14 +1805,8 @@ body {
   width: 100%;
   height: 100%;
   max-width: none;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-
-@media (max-width: 600px) {
-  .photo-image {
-    object-position: 50% 34%;
-  }
+  object-fit: contain;
+  object-position: center;
 }
 
 .photo-caption {
