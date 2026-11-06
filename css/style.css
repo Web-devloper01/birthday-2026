@@ -1780,13 +1780,14 @@ body {
 }
 
 .photo-frame {
+  position: relative;
+  isolation: isolate;
   width: min(100%, 320px);
-  height: min(42dvh, 300px);
-  min-height: 190px;
+  height: min(38dvh, 280px);
+  min-height: 160px;
+  box-sizing: border-box;
   flex: 0 0 auto;
   margin: 4px auto 7px;
-  display: grid;
-  place-items: center;
   overflow: hidden;
   border: 1px solid rgba(179, 146, 97, 0.26);
   border-radius: 17px;
@@ -1796,10 +1797,13 @@ body {
 
 .photo-image {
   display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 50%;
 }
 
 .photo-caption {
