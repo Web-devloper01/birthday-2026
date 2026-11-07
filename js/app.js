@@ -95,6 +95,13 @@ ${CONFIG.fromName}`
 ];
 
 const envelopeScene = document.getElementById("envelopeScene");
+const passwordScene = document.getElementById("passwordScene");
+const passwordCard = document.getElementById("passwordCard");
+const passwordForm = document.getElementById("passwordForm");
+const passwordInput = document.getElementById("passwordInput");
+const passwordError = document.getElementById("passwordError");
+const passwordReveal = document.getElementById("passwordReveal");
+const continueBtn = document.getElementById("continueBtn");
 const bookScene = document.getElementById("bookScene");
 const envelope = document.getElementById("envelope");
 const flap = document.getElementById("flap");
@@ -435,6 +442,44 @@ function openEnvelope() {
   flap.addEventListener("transitionend", onFlapOpened);
   flapFallback = setTimeout(raiseBook, 1050);
 }
+
+passwordForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const enteredPassword = passwordInput.value.trim().toLowerCase();
+  const enteredDigits = enteredPassword.replace(/\D/g, "").replace(/^0+/, "");
+  if (enteredPassword !== "khu@0805" && enteredDigits !== "4122004") {
+    passwordError.hidden = false;
+    passwordCard.classList.remove("password-card--shake");
+    void passwordCard.offsetWidth;
+    passwordCard.classList.add("password-card--shake");
+    passwordInput.focus();
+    return;
+  }
+
+  passwordError.hidden = true;
+  passwordInput.disabled = true;
+  passwordForm.querySelector("button[type='submit']").disabled = true;
+  passwordForm.classList.add("password-form--leaving");
+  window.setTimeout(() => {
+    passwordForm.hidden = true;
+    passwordReveal.hidden = false;
+    requestAnimationFrame(() => passwordReveal.classList.add("password-reveal--shown"));
+  }, 420);
+});
+
+passwordInput.addEventListener("input", () => {
+  passwordError.hidden = true;
+});
+
+continueBtn.addEventListener("click", () => {
+  passwordReveal.classList.add("password-reveal--leaving");
+  window.setTimeout(() => {
+    passwordScene.hidden = true;
+    envelopeScene.hidden = false;
+    envelopeScene.getBoundingClientRect();
+    envelopeScene.classList.add("envelope-scene--revealed");
+  }, 420);
+});
 
 function bindSwipe() {
   let gesture;

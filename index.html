@@ -19,7 +19,43 @@
   <body>
     <div class="petals" id="petals" aria-hidden="true"></div>
 
-    <section class="scene envelope-scene" id="envelopeScene">
+    <section class="scene password-scene" id="passwordScene">
+      <div class="password-card" id="passwordCard">
+        <span class="password-sparkle" aria-hidden="true">✦</span>
+        <p class="eyebrow">Just between us</p>
+        <h1>A little key for you</h1>
+        <p class="password-intro">There’s a birthday surprise waiting inside.</p>
+        <form class="password-form" id="passwordForm">
+          <label for="passwordInput">Enter the password</label>
+          <div class="password-entry">
+            <input
+              id="passwordInput"
+              name="password"
+              type="password"
+              inputmode="text"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              maxlength="10"
+              placeholder="DD/MM/YYYY"
+              aria-describedby="passwordHint passwordError"
+              required
+            />
+            <button class="unlock-btn" type="submit">Unlock</button>
+          </div>
+          <p class="password-hint" id="passwordHint">Hint: Enter Meet’s birth date (DDMMYYYY).</p>
+          <p class="password-error" id="passwordError" aria-live="polite" hidden>
+            Not quite—try my birth date again.
+          </p>
+        </form>
+        <div class="password-reveal" id="passwordReveal" aria-live="polite" hidden>
+          <p>I wish I could be there to see your reaction as you open this. I hope these little surprises bring a smile to your face and remind you how much you mean to me.</p>
+          <button class="continue-btn" id="continueBtn" type="button">Open your birthday book</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene envelope-scene" id="envelopeScene" hidden>
       <header class="intro">
         <p class="eyebrow">A birthday card for</p>
         <h1 id="recipientName">Khushi</h1>

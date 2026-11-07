@@ -72,6 +72,182 @@ body {
   padding: calc(18px + var(--safe-t)) 18px calc(18px + var(--safe-b));
 }
 
+.password-scene {
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at 50% 34%, #fff9f4 0, #f8e8eb 52%, #edc7d0 100%);
+}
+
+.password-card {
+  position: relative;
+  width: min(100%, 430px);
+  padding: 32px 24px 28px;
+  overflow: hidden;
+  border: 1px solid rgba(179, 146, 97, 0.28);
+  border-radius: 26px;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(255, 255, 255, 0.9), transparent 64%),
+    linear-gradient(155deg, #fffaf4, #f7e9eb 58%, #f1e0dc);
+  box-shadow: 0 18px 46px rgba(91, 55, 67, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+
+.password-sparkle {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: var(--gold);
+  font-size: 1.4rem;
+  animation: passwordSparkle 2.4s ease-in-out infinite;
+}
+
+.password-card h1 {
+  margin: 7px 0 4px;
+  color: #a64e68;
+  font: 600 clamp(2.1rem, 9vw, 2.8rem)/1.05 "Dancing Script", cursive;
+}
+
+.password-intro {
+  margin: 10px 0 22px;
+  color: #6e5961;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.password-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #72515d;
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+.password-entry {
+  display: flex;
+  gap: 9px;
+  width: 100%;
+}
+
+.password-entry input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid rgba(166, 78, 104, 0.28);
+  border-radius: 14px;
+  outline: none;
+  background: rgba(255, 253, 249, 0.9);
+  color: var(--ink);
+  font: 500 0.94rem "Poppins", sans-serif;
+  text-align: center;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 2px 5px rgba(96, 55, 64, 0.05);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.password-entry input::placeholder {
+  color: #a48e94;
+  letter-spacing: 0.06em;
+}
+
+.password-entry input:focus {
+  border-color: rgba(166, 78, 104, 0.7);
+  box-shadow: 0 0 0 3px rgba(189, 111, 131, 0.12);
+}
+
+.unlock-btn,
+.continue-btn {
+  min-height: 48px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #bd6f83, #a94f68);
+  color: #fffaf7;
+  font: 500 0.88rem "Poppins", sans-serif;
+  box-shadow: 0 7px 16px rgba(128, 58, 80, 0.2);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.unlock-btn:active,
+.continue-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 3px 9px rgba(128, 58, 80, 0.18);
+}
+
+.unlock-btn:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.password-hint {
+  margin-top: 13px;
+  color: #715862;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.password-error {
+  margin-top: 10px;
+  color: #963f5a;
+  font-size: 0.8rem;
+}
+
+.password-card--shake {
+  animation: passwordShake 360ms ease;
+}
+
+.password-form--leaving,
+.password-reveal--leaving {
+  animation: passwordFadeOut 420ms ease forwards;
+}
+
+.password-reveal {
+  display: grid;
+  justify-items: center;
+  gap: 19px;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.password-reveal--shown {
+  opacity: 1;
+  transform: none;
+  transition: opacity 560ms ease, transform 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.password-reveal p {
+  max-width: 34rem;
+  color: #5b454e;
+  font: italic 500 1.08rem/1.55 "Cormorant Garamond", serif;
+}
+
+.continue-btn {
+  min-height: 50px;
+  padding: 0 22px;
+}
+
+.envelope-scene--revealed {
+  animation: envelopeGateAppear 680ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes passwordFadeOut {
+  to { opacity: 0; transform: translateY(-12px); }
+}
+
+@keyframes passwordShake {
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+@keyframes passwordSparkle {
+  50% { opacity: 0.55; transform: scale(0.88) rotate(-8deg); }
+}
+
+@keyframes envelopeGateAppear {
+  from { opacity: 0; transform: translateY(18px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
 .intro {
   text-align: center;
   margin-bottom: 18px;
